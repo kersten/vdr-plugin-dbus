@@ -24,15 +24,6 @@ void cPluginDbusClient::Initialize(void)
     std::cout << "Initializing..." << std::endl;
 
 	if (m_Instance == NULL) {
-		/*if (StreamdevServerSetup.StartVTPServer)  Register(new cComponentVTP);
-		if (StreamdevServerSetup.StartHTTPServer) Register(new cComponentHTTP);
-		if (StreamdevServerSetup.StartIGMPServer) {
-			if (strcmp(StreamdevServerSetup.IGMPBindIP, "0.0.0.0") == 0)
-			    esyslog("streamdev-server: Not starting IGMP.
-			        IGMP must be bound to a local IP");
-			else
-				Register(new cComponentIGMP);
-		}*/
         std::cout << "Thread started" << std::endl;
 		m_Instance = new cPluginDbusClient;
 	}

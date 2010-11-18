@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<node name="/org/vdr/Events">
+<node name="/org/vdr">
   <interface name="org.vdr.Events">
     <method name="shutdown">
       <arg type="i" name="minutes" direction="in"/>
