@@ -5,7 +5,7 @@
 #include <limits.h>
 #include <iostream>
 
-static const char *ECHO_SERVER_NAME = "org.vdr.Events";
+static const char *ECHO_SERVER_NAME = "org.vdr";
 static const char *ECHO_SERVER_PATH = "/org/vdr";
 
 PluginDBusServer::PluginDBusServer(DBus::Connection &connection)
