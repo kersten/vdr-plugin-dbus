@@ -1,10 +1,10 @@
-This is a "plugin" for the Video Disk Recorder (VDR).
+This is a dbus plugin for the Video Disk Recorder (VDR).
 
-Written by:                  Your Name <email@host.dom>
+Written by:                  Kersten Burkhardt <kerstenk@gmail.com>
 
-Project's homepage:          URL
+Project's homepage:          https://github.com/kersten/vdr-plugin-dbus
 
-Latest version available at: URL
+Latest version available at: git://github.com/kersten/vdr-plugin-dbus.git
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
