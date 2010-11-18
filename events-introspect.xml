@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<node name="/org/vdr/Events">
+  <interface name="org.vdr.Events">
+    <method name="shutdown">
+      <arg type="i" name="minutes" direction="in"/>
+      <arg type="b" name="success" direction="out"/>
+    </method>
+
+    <method name="reboot">
+      <arg type="b" name="success" direction="out"/>
+    </method>
+    
+    <method name="suspend">
+      <arg type="b" name="success" direction="out"/>
+    </method>
+  </interface>
+</node>

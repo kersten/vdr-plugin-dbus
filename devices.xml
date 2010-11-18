@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <node>
+      <interface name="org.freedesktop.Hal.Manager">
+        <method name="GetAllDevices">
+          <arg name="devices" direction="out" type="ao"/>
+        </method>
+        <signal name="DeviceAdded">
+          <arg name="udi" type="s"/>
+        </signal>
+        <signal name="DeviceRemoved">
+          <arg name="udi" type="s"/>
+        </signal>
+      </interface>
+    </node>
+
