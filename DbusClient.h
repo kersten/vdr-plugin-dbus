@@ -2,7 +2,7 @@
 #include <dbus-c++/dbus.h>
 #include <signal.h>
 
-
+#include "Server.h"
 #include "UDisksManagerProxy.h"
 
 class cPluginDbusClient: public cThread {

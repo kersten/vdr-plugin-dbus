@@ -1,3 +1,6 @@
+#ifndef __server_h
+#define __server_h
+
 #include <dbus-c++/dbus.h>
 #include "events-server-glue.h"
 
@@ -14,3 +17,4 @@ public:
 	bool suspend();
 	bool reboot();
 };
+#endif//__server_h

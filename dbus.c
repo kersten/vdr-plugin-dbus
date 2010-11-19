@@ -28,8 +28,8 @@
 #include <signal.h>
 #include <iostream>
 
-#include "DbusClient.h"
 #include "DbusServer.h"
+#include "DbusClient.h"
 
 static const char *VERSION = "0.0.1-r1";
 static const char *DESCRIPTION = "Enter description for 'dbus' plugin";
