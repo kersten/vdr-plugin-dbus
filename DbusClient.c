@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <iostream>
 
-#include "client.h"
+#include "DbusClient.h"
 #include "Server.h"
 
 cPluginDbusClient         *cPluginDbusClient::m_Instance = NULL;
@@ -44,12 +44,9 @@ void cPluginDbusClient::Stop(void)
 void cPluginDbusClient::Action(void)
 {
 	DBus::default_dispatcher = &dispatcher;
-	DBus::Connection conn = DBus::Connection::SessionBus();
+	DBus::Connection conn = DBus::Connection::SystemBus();
 	
-	//UDisksManagerProxy udisks(conn);
-	
-	conn.request_name("org.vdr.Events");
-	PluginDBusServer server(conn);
+	UDisksManagerProxy udisks(conn);
 
 	dispatcher.enter();
 }

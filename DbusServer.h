@@ -2,11 +2,9 @@
 #include <dbus-c++/dbus.h>
 #include <signal.h>
 
-#include "UDisksManagerProxy.h"
-
-class cPluginDbusClient: public cThread {
+class cPluginDbusServer: public cThread {
 private:
-	static cPluginDbusClient        *m_Instance;
+	static cPluginDbusServer        *m_Instance;
 	DBus::BusDispatcher dispatcher;
 
 protected:
@@ -15,15 +13,15 @@ protected:
 	virtual void Action(void);
 
 public:
-	cPluginDbusClient(void);
-	virtual ~cPluginDbusClient();
+	cPluginDbusServer(void);
+	virtual ~cPluginDbusServer();
 
 	static void Initialize(void);
 	static void Destruct(void);
 	static bool Active(void);
 };
 
-inline bool cPluginDbusClient::Active(void)
+inline bool cPluginDbusServer::Active(void)
 {
 	return m_Instance != NULL;
 }

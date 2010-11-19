@@ -27,7 +27,9 @@
 #include <dbus-c++/dbus.h>
 #include <signal.h>
 #include <iostream>
+
 #include "DbusClient.h"
+#include "DbusServer.h"
 
 static const char *VERSION = "0.0.1-r1";
 static const char *DESCRIPTION = "Enter description for 'dbus' plugin";
@@ -52,7 +54,6 @@ public:
 	{	return VERSION;}
 	virtual const char *Description(void)
 	{	return DESCRIPTION;}
-	virtual void niam(int sig);
 	virtual const char *CommandLineHelp(void);
 	virtual bool ProcessArgs(int argc, char *argv[]);
 	virtual bool Initialize(void);
@@ -102,14 +103,10 @@ bool cPluginDbus::Initialize(void)
 	return true;
 }
 
-void cPluginDbus::niam(int sig)
-{
-	//dispatcher.leave();
-}
-
 bool cPluginDbus::Start(void)
 {
 	/// Initalize dbus system
+	cPluginDbusServer::Initialize();
 	cPluginDbusClient::Initialize();
 	return true;
 }
