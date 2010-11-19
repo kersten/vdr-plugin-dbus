@@ -2,6 +2,8 @@
 #include <dbus-c++/dbus.h>
 #include <signal.h>
 
+#include "Server.h"
+
 class cPluginDbusServer: public cThread {
 private:
 	static cPluginDbusServer        *m_Instance;

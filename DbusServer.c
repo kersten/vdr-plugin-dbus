@@ -4,12 +4,11 @@
 #include <iostream>
 
 #include "DbusServer.h"
-#include "Server.h"
 
 cPluginDbusServer *cPluginDbusServer::m_Instance = NULL;
 
 cPluginDbusServer::cPluginDbusServer(void):
-		cThread("streamdev server")
+		cThread("dbus server")
 {
 	Start();
 }
