@@ -39,14 +39,6 @@ class cPluginDbus : public cPlugin
 {
 private:
 	// Add any member variables or functions you may need here.
-	//Bus::BusDispatcher dispatcher;
-	//DeviceMap m_AvailableDevices;
-
-	/*DBusConnection *m_connection;
-	DBusError m_error;
-	DBusMessage *msg;
-	DBusMessageIter args;
-	char* sigvalue;*/
 public:
 	cPluginDbus(void);
 	virtual ~cPluginDbus();
