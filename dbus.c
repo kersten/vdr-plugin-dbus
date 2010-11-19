@@ -1,10 +1,27 @@
-/*
- * dbus.c: A plugin for the Video Disk Recorder
- *
- * See the README file for copyright information and how to reach the author.
- *
- * $Id$
- */
+// -----------------------------------------------------------------------------
+/**
+   File: dbus.c
+  
+   System:         VDR
+   Component Name: dbus plugin
+   Status:         Version 0.0.1 Release 1
+   Language: C++
+  
+   License: GNU Public License V2
+  
+   Author: Kersten Burkhardt
+   E-Mail: kerstenk@gmail.com
+  
+   Description: Main plugin file
+                XXX Wite some text here
+  
+   Extendable: No
+  
+   Platform Dependencies: Linux      (i.e.: Linux/Intel, IRIX/Mips, Solaris/SPARC)
+  
+   $Id$
+*/  
+// -----------------------------------------------------------------------------
 
 #include <vdr/plugin.h>
 #include <dbus-c++/dbus.h>
