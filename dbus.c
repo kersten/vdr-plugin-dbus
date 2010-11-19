@@ -74,7 +74,8 @@ cPluginDbus::cPluginDbus(void)
 
 cPluginDbus::~cPluginDbus()
 {
-	// Clean up after yourself!
+	cPluginDbusServer::Destruct();
+	cPluginDbusClient::Destruct();
 }
 
 const char *cPluginDbus::CommandLineHelp(void)
