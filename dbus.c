@@ -27,9 +27,9 @@
 #include <dbus-c++/dbus.h>
 #include <signal.h>
 #include <iostream>
-#include "client.h"
+#include "DbusClient.h"
 
-static const char *VERSION = "0.0.1";
+static const char *VERSION = "0.0.1-r1";
 static const char *DESCRIPTION = "Enter description for 'dbus' plugin";
 static const char *MAINMENUENTRY = "Dbus";
 
@@ -109,60 +109,8 @@ void cPluginDbus::niam(int sig)
 
 bool cPluginDbus::Start(void)
 {
-    std::cout << "Plugin started" << std::endl;
-
-    cPluginDbusClient::Initialize();
-    
-	// Start any background activities the plugin shall perform.
-	/*dsyslog("Satrt initalizing dbus plugin for vdr");
-
-	//signal(SIGTERM, niam);
-	//signal(SIGINT, niam);
-
-	DBus::default_dispatcher = &dispatcher;
-
-	DBus::Connection conn = DBus::Connection::SystemBus();
-
-	HalManagerProxy hal(conn);
-
-	dispatcher.enter();
-*/
-	/*// loop listening for signals being emmitted
-	while (true)
-	{
-		dsyslog("Read dbus!");
-		// non blocking read of the next available message
-		dbus_connection_read_write(m_connection, 0);
-		msg = dbus_connection_pop_message(m_connection);
-
-		// loop again if we haven't read a message
-		if (NULL == msg)
-		{
-			sleep(1);
-			continue;
-		}
-
-		// check if the message is a signal from the correct interface
-		// and with the correct name
-		if (dbus_message_is_signal(msg, "org.freedesktop.UDisks", "DeviceAdded"))
-		{
-			// read the parameters
-			if (!dbus_message_iter_init(msg, &args))
-				dsyslog("Message has no arguments!");
-			else if (DBUS_TYPE_STRING != dbus_message_iter_get_arg_type(&args))
-				dsyslog("Argument is not string!");
-			else
-			{
-				dbus_message_iter_get_basic(&args, &sigvalue);
-				dsyslog("Got Signal with value %s\n", sigvalue);
-			}
-		}
-
-		// free the message
-		dbus_message_unref(msg);
-	}*/
-
-    std::cout << "Plugin started successfully" << std::endl;
+	/// Initalize dbus system
+	cPluginDbusClient::Initialize();
 	return true;
 }
 
