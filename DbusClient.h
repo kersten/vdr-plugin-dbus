@@ -1,3 +1,6 @@
+#ifndef __DbusClient_h
+#define __DbusClient_h
+
 #include <vdr/thread.h>
 #include <dbus-c++/dbus.h>
 #include <signal.h>
@@ -28,3 +31,4 @@ inline bool cPluginDbusClient::Active(void)
 {
 	return m_Instance != NULL;
 }
+#endif//__DbusClient_h
