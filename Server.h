@@ -2,7 +2,7 @@
 #include "events-server-glue.h"
 
 class PluginDBusServer
-: public org::vdr::Events_adaptor,
+: public org::vdr::Event_adaptor,
   public DBus::IntrospectableAdaptor,
   public DBus::ObjectAdaptor
 {

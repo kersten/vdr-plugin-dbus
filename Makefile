@@ -63,6 +63,7 @@ all: libvdr-$(PLUGIN).so i18n
 
 events-server-glue.h: events-introspect.xml
 	dbusxx-xml2cpp $^ --adaptor=$@
+
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) $<
 

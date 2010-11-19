@@ -8,6 +8,7 @@ class cPluginDbusClient: public cThread {
 private:
 	static cPluginDbusClient        *m_Instance;
 	DBus::BusDispatcher dispatcher;
+	void niam(int sig);
 
 protected:
 	void Stop(void);

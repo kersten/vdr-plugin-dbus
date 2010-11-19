@@ -44,9 +44,9 @@ void cPluginDbusClient::Stop(void)
 void cPluginDbusClient::Action(void)
 {
 	DBus::default_dispatcher = &dispatcher;
-	DBus::Connection conn = DBus::Connection::SystemBus();
+	DBus::Connection conn = DBus::Connection::SessionBus();
 	
-	UDisksManagerProxy udisks(conn);
+	//UDisksManagerProxy udisks(conn);
 	
 	conn.request_name("org.vdr.Events");
 	PluginDBusServer server(conn);
