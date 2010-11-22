@@ -1,7 +1,5 @@
 #include "UDisksManagerProxy.h"
 
-
-
 UDisksManagerProxy::UDisksManagerProxy(DBus::Connection &connection)
 : DBus::InterfaceProxy("org.freedesktop.UDisks"),
   DBus::ObjectProxy(connection, "/org/freedesktop/UDisks", "org.freedesktop.UDisks")
@@ -16,7 +14,7 @@ UDisksManagerProxy::UDisksManagerProxy(DBus::Connection &connection)
 	{
 		DBus::Path udi = *it;
 
-		dsyslog("[vdr-dbus] UDisksManagerProxy :: found device %s", (char*) &udi);
+		dsyslog("[vdr-dbus] UDisksManagerProxy :: found device %s", udi.c_str());
 
 		_devices[udi] = new UDisksDeviceProxy(connection, udi);
 	}
@@ -42,11 +40,11 @@ void UDisksManagerProxy::DeviceAddedCb(const DBus::SignalMessage &sig)
 	DBus::Path devname;
 
 	it >> devname;
-
+	
 	DBus::Path udi(devname);
 
 	_devices[devname] = new UDisksDeviceProxy(conn(), udi);
-	dsyslog("[vdr-dbus] UDisksManagerProxy :: added device %s", (char*) &udi);
+	dsyslog("[vdr-dbus] UDisksManagerProxy :: added device %s", udi.c_str());
 }
 
 void UDisksManagerProxy::DeviceRemovedCb(const DBus::SignalMessage &sig)
@@ -56,7 +54,7 @@ void UDisksManagerProxy::DeviceRemovedCb(const DBus::SignalMessage &sig)
 
 	it >> devname;
 
-	dsyslog("[vdr-dbus] UDisksManagerProxy :: removed device %s", (char*) &devname);
+	dsyslog("[vdr-dbus] UDisksManagerProxy :: removed device %s", devname.c_str());
 
 	_devices.erase(devname);
 }
