@@ -15,3 +15,16 @@ See the file COPYING for more information.
 Description:
 
 This plugin provides a connection from and to the dbus message system.
+
+Howto:
+
+This version has three functions that could be triggered by dbus-send binary. To
+test them you have to execute one of the following comands.
+
+dbus-send --dest=org.vdr.Events --type=method_call /org/vdr/Events org.vdr.Event.shutdown int32:25
+dbus-send --dest=org.vdr.Events --type=method_call /org/vdr/Events org.vdr.Event.reboot
+dbus-send --dest=org.vdr.Events --type=method_call /org/vdr/Events org.vdr.Event.suspend
+
+And by the way:
+
+it's done when it's done :)
