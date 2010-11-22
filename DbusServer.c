@@ -20,10 +20,10 @@ cPluginDbusServer::~cPluginDbusServer()
 
 void cPluginDbusServer::Initialize(void)
 {
-    std::cout << "Initializing..." << std::endl;
+	dsyslog("status: cPluginDbusServer::Initialize");
 
 	if (m_Instance == NULL) {
-        std::cout << "Thread started" << std::endl;
+		dsyslog("status: cPluginDbusServer thread started");
 		m_Instance = new cPluginDbusServer;
 	}
 }

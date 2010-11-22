@@ -1,6 +1,12 @@
+#ifndef __u_disks_device_proxy_h
+#define __u_disks_device_proxy_h
+
 #include <dbus-c++/dbus.h>
 #include <vector>
 #include <map>
+#include <signal.h>
+#include <iostream>
+#include <vdr/plugin.h>
 
 class UDisksDeviceProxy;
 
@@ -29,3 +35,5 @@ private:
 	void PropertyModifiedCb(const DBus::SignalMessage &sig);
 	void ConditionCb(const DBus::SignalMessage &sig);
 };
+
+#endif//__u_disks_device_proxy_h

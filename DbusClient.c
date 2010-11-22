@@ -20,10 +20,10 @@ cPluginDbusClient::~cPluginDbusClient()
 
 void cPluginDbusClient::Initialize(void)
 {
-    std::cout << "Initializing..." << std::endl;
+	dsyslog("[vdr-dbus] cPluginDbusClient::Initialize");
 
 	if (m_Instance == NULL) {
-        std::cout << "Thread started" << std::endl;
+		dsyslog("[vdr-dbus] cPluginDbusClient thread started");
 		m_Instance = new cPluginDbusClient;
 	}
 }

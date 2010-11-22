@@ -1,9 +1,6 @@
-#include <vdr/plugin.h>
-
 #include "UDisksManagerProxy.h"
 
-#include <signal.h>
-#include <iostream>
+
 
 UDisksManagerProxy::UDisksManagerProxy(DBus::Connection &connection)
 : DBus::InterfaceProxy("org.freedesktop.UDisks"),
@@ -19,7 +16,7 @@ UDisksManagerProxy::UDisksManagerProxy(DBus::Connection &connection)
 	{
 		DBus::Path udi = *it;
 
-		std::cout << "found device " << udi << std::endl;
+		dsyslog("[vdr-dbus] UDisksManagerProxy :: found device %s", (char*) &udi);
 
 		_devices[udi] = new UDisksDeviceProxy(connection, udi);
 	}
@@ -49,7 +46,7 @@ void UDisksManagerProxy::DeviceAddedCb(const DBus::SignalMessage &sig)
 	DBus::Path udi(devname);
 
 	_devices[devname] = new UDisksDeviceProxy(conn(), udi);
-	std::cout << "added device " << udi << std::endl;
+	dsyslog("[vdr-dbus] UDisksManagerProxy :: added device %s", (char*) &udi);
 }
 
 void UDisksManagerProxy::DeviceRemovedCb(const DBus::SignalMessage &sig)
@@ -59,7 +56,7 @@ void UDisksManagerProxy::DeviceRemovedCb(const DBus::SignalMessage &sig)
 
 	it >> devname;
 
-	std::cout << "removed device " << devname << std::endl;
+	dsyslog("[vdr-dbus] UDisksManagerProxy :: removed device %s", (char*) &udi);
 
 	_devices.erase(devname);
 }

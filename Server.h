@@ -1,7 +1,14 @@
 #ifndef __server_h
 #define __server_h
 
+#include <vdr/plugin.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <limits.h>
+#include <iostream>
 #include <dbus-c++/dbus.h>
+
 #include "events-server-glue.h"
 
 class PluginDBusServer
