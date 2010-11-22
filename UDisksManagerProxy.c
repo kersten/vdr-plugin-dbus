@@ -56,7 +56,7 @@ void UDisksManagerProxy::DeviceRemovedCb(const DBus::SignalMessage &sig)
 
 	it >> devname;
 
-	dsyslog("[vdr-dbus] UDisksManagerProxy :: removed device %s", (char*) &udi);
+	dsyslog("[vdr-dbus] UDisksManagerProxy :: removed device %s", (char*) &devname);
 
 	_devices.erase(devname);
 }
