@@ -74,7 +74,7 @@ cPluginDbus::cPluginDbus(void)
 
 cPluginDbus::~cPluginDbus()
 {
-	cPluginDbusServer::Destruct();
+	//cPluginDbusServer::Destruct();
 	cPluginDbusClient::Destruct();
 }
 
@@ -99,7 +99,7 @@ bool cPluginDbus::Initialize(void)
 bool cPluginDbus::Start(void)
 {
 	/// Initalize dbus system
-	cPluginDbusServer::Initialize();
+	//cPluginDbusServer::Initialize();
 	cPluginDbusClient::Initialize();
 	return true;
 }
