@@ -43,7 +43,7 @@ void cPluginDbusServer::Stop(void)
 void cPluginDbusServer::Action(void)
 {
 	DBus::default_dispatcher = &dispatcher;
-	DBus::Connection conn = DBus::Connection::SessionBus();
+	DBus::Connection conn = DBus::Connection::SystemBus();
 	
 	conn.request_name("org.vdr.Events");
 	PluginDBusServer server(conn);
