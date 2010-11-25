@@ -45,7 +45,7 @@ void cPluginDbusServer::Action(void)
 	DBus::default_dispatcher = &dispatcher;
 	DBus::Connection conn = DBus::Connection::SystemBus();
 	
-	conn.request_name("org.vdr.Events");
+	//conn.request_name("org.vdr.Events");
 	PluginDBusServer server(conn);
 
 	dispatcher.enter();
