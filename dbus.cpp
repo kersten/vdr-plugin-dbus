@@ -17,7 +17,7 @@
 
  Extendable: No
 
- Platform Dependencies: Linux      (i.e.: Linux/Intel, IRIX/Mips, Solaris/SPARC)
+ Platform Dependencies: Linux
 
  $Id$
  */
@@ -27,6 +27,7 @@
 #include <iostream>
 
 #include "DBusSendSignal.h"
+#include "Status.h"
 
 static const char *VERSION = "0.0.1-r1";
 static const char *DESCRIPTION = "Enter description for 'dbus' plugin";
@@ -35,7 +36,8 @@ static const char *MAINMENUENTRY = "Dbus";
 class cPluginDbus : public cPlugin
 {
 private:
-  DBusSendSignal sig;
+  DBusSendSignal *sig;
+  Status *statusTest;
 public:
   cPluginDbus(void);
   virtual
@@ -92,12 +94,16 @@ cPluginDbus::cPluginDbus(void)
   // Initialize any member variables here.
   // DON'T DO ANYTHING ELSE THAT MAY HAVE SIDE EFFECTS, REQUIRE GLOBAL
   // VDR OBJECTS TO EXIST OR PRODUCE ANY OUTPUT!
+  statusTest = NULL;
+  sig = NULL;
 }
 
 cPluginDbus::~cPluginDbus()
 {
   //cPluginDbusServer::Destruct();
   //cPluginDbusClient::Destruct();
+  delete statusTest;
+  delete sig;
 }
 
 const char *
@@ -127,8 +133,11 @@ cPluginDbus::Start(void)
   /// Initalize dbus system
   //cPluginDbusServer::Initialize();
   //cPluginDbusClient::Initialize();
-  sig = DBusSendSignal();
-  sig.send("org.vdr.Events", "/org/vdr/Events", "org.vdr.Events.xinelib", "Started", "no");
+  sig = new DBusSendSignal();
+  sig->send("org.vdr.Plugins", "/org/vdr/Plugins",
+      "org.vdr.Plugins.dbusPlugin", "Started", "true");
+
+  statusTest = new Status;
 
   return true;
 }
@@ -137,7 +146,8 @@ void
 cPluginDbus::Stop(void)
 {
   // Stop any background activities the plugin is performing.
-  sig.send("org.vdr.Events", "/org/vdr/Events", "org.vdr.Events.dbusPlugin", "Stopped", "no");
+  sig->send("org.vdr.Plugins", "/org/vdr/Plugins",
+      "org.vdr.Plugins.dbusPlugin", "Stopped", "true");
 }
 
 void
@@ -206,7 +216,19 @@ cString
 cPluginDbus::SVDRPCommand(const char *Command, const char *Option,
     int &ReplyCode)
 {
-  // Process SVDRP commands this plugin implements
+  if (strcasecmp(Command, "XLOS") == 0)
+    {
+      sig->send("org.vdr.Plugins", "/org/vdr/Plugins",
+          "org.vdr.Plugins.xineliboutput", "Started", "true");
+      return true;
+    }
+  else if (strcasecmp(Command, "XOS") == 0)
+    {
+      sig->send("org.vdr.Plugins", "/org/vdr/Plugins", "org.vdr.Plugins.xine",
+          "Started", "true");
+      return true;
+    }
+
   return NULL;
 }
 
