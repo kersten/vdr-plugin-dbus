@@ -53,16 +53,12 @@ DEFINES += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
 ### The object files (add further files here):
 
 OBJS = $(PLUGIN).o DBusConnection.o DBusSendSignal.o
-INTROSPECTS = events-server-glue.h
 
 ### The main target:
 
 all: libvdr-$(PLUGIN).so i18n
 
 ### Implicit rules:
-
-events-server-glue.h: events-introspect.xml
-	dbusxx-xml2cpp $^ --adaptor=$@
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) $<
