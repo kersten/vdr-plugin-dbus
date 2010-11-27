@@ -46,13 +46,13 @@ PACKAGE = vdr-$(ARCHIVE)
 ### Includes and Defines (add further entries here):
 
 INCLUDES += -I$(VDRDIR)/include
-INCLUDES += `pkg-config --cflags dbus-c++-1`
+INCLUDES += `pkg-config --cflags dbus-1`
 
 DEFINES += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
 
 ### The object files (add further files here):
 
-OBJS = $(PLUGIN).o DbusClient.o UDisksManagerProxy.o Server.o DbusServer.o
+OBJS = $(PLUGIN).o DBusConnection.o DBusSendSignal.o
 INTROSPECTS = events-server-glue.h
 
 ### The main target:
@@ -64,7 +64,7 @@ all: libvdr-$(PLUGIN).so i18n
 events-server-glue.h: events-introspect.xml
 	dbusxx-xml2cpp $^ --adaptor=$@
 
-%.o: %.c
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) $<
 
 ### Dependencies:
@@ -72,7 +72,7 @@ events-server-glue.h: events-introspect.xml
 MAKEDEP = $(CXX) -MM -MG
 DEPFILE = .dependencies
 $(DEPFILE): Makefile
-	@$(MAKEDEP) $(DEFINES) $(INCLUDES) $(OBJS:%.o=%.c) > $@
+	@$(MAKEDEP) $(DEFINES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
 
 -include $(DEPFILE)
 
