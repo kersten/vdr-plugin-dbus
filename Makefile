@@ -100,7 +100,7 @@ i18n: $(I18Nmsgs) $(I18Npot)
 ### Targets:
 
 libvdr-$(PLUGIN).so: $(INTROSPECTS) $(OBJS)
-	$(CXX) $(CXXFLAGS) -shared $(OBJS) `pkg-config --libs dbus-c++-1` -o $@
+	$(CXX) $(CXXFLAGS) -shared $(OBJS) `pkg-config --libs dbus-1` -o $@
 	@cp --remove-destination $@ $(LIBDIR)/$@.$(APIVERSION)
 
 dist: clean
