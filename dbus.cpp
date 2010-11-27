@@ -26,7 +26,6 @@
 #include <vdr/plugin.h>
 #include <iostream>
 
-#include "DBusConnection.h"
 #include "DBusSendSignal.h"
 
 static const char *VERSION = "0.0.1-r1";
