@@ -26,6 +26,7 @@ VDRDIR = ../../..
 LIBDIR = ../../lib
 TMPDIR = /tmp
 
+
 ### Make sure that necessary options are included:
 
 include $(VDRDIR)/Make.global
@@ -52,7 +53,7 @@ DEFINES += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
 
 ### The object files (add further files here):
 
-OBJS = $(PLUGIN).o DBusSendSignal.o
+OBJS = $(PLUGIN).o DBusSendSignal.o Status.o
 
 ### The main target:
 
