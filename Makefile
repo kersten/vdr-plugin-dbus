@@ -52,7 +52,7 @@ DEFINES += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
 
 ### The object files (add further files here):
 
-OBJS = $(PLUGIN).o DBusConnection.o DBusSendSignal.o
+OBJS = $(PLUGIN).o DBusSendSignal.o
 
 ### The main target:
 
