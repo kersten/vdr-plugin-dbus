@@ -1,6 +1,11 @@
 VDR Plugin 'dbus' Revision History
 ----------------------------------
 
+2010-11-28: Version 0.0.1-r3
+
+- added SvdrpCommands for xine and xineliboutput
+- added signals for channelswitch
+
 2010-11-27: Version 0.0.1-r2
 
 - Fixed crash of vdr

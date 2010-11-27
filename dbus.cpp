@@ -29,9 +29,9 @@
 #include "DBusSendSignal.h"
 #include "Status.h"
 
-static const char *VERSION = "0.0.1-r1";
-static const char *DESCRIPTION = "Enter description for 'dbus' plugin";
-static const char *MAINMENUENTRY = "Dbus";
+static const char *VERSION = "0.0.1-r3";
+static const char *DESCRIPTION = "This plugin provides a connection from and to the dbus message system.";
+static const char *MAINMENUENTRY = "DBus";
 
 class cPluginDbus : public cPlugin
 {
