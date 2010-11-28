@@ -220,13 +220,13 @@ cPluginDbus::SVDRPCommand(const char *Command, const char *Option,
     {
       sig->send("org.vdr.Plugins", "/org/vdr/Plugins",
           "org.vdr.Plugins.xineliboutput", "Started", "true");
-      return true;
+      return NULL;
     }
   else if (strcasecmp(Command, "XOS") == 0)
     {
       sig->send("org.vdr.Plugins", "/org/vdr/Plugins", "org.vdr.Plugins.xine",
           "Started", "true");
-      return true;
+      return NULL;
     }
 
   return NULL;
